@@ -16,8 +16,8 @@ phases:
       - echo Deploying production files to S3 web hosting bucket
       - aws s3 sync --delete dist/stiggley-client-bucket s3://stiggley-client-bucket
       - echo Files deployed on `date`
-  artifacts:
-    files:
-        - '**/*'
-      base-directory: 'dist'
-      discard-paths: yes
+artifacts:
+  files:
+      - '**/*'
+    base-directory: 'dist'
+    discard-paths: yes
