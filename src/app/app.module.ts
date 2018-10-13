@@ -14,10 +14,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,7 +64,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
