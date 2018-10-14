@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    console.log('loggedUser is ' + this.loggedUser);
     if (this.loggedUser != null) {
-      this.router.navigate(['home']);
+      // this.router.navigate(['home']);
     }
   }
 
