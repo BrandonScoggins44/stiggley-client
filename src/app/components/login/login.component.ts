@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { User } from '../models/user';
-// import { UserService } from '../user.service';
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-//  user: User = new User();
+  user: User = new User();
   loggedUser = localStorage.getItem('user');
   isValid = true;
 
@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit {
     Validators.required,
   ]);
 
-  constructor(/* private userService: UserService,*/ private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    console.log('loggedUser is ' + this.loggedUser);
     if (this.loggedUser != null) {
-      this.router.navigate(['home']);
+      // this.router.navigate(['home']);
     }
   }
 
@@ -47,6 +48,14 @@ export class LoginComponent implements OnInit {
           this.isValid = false;
         }
       });
-    */}
+    */
+      if (this.user.username === 'testUser' && this.user.password === 'p4ssw0rd') {
+        this.isValid = true;
+        localStorage.setItem('user', JSON.stringify(this.user));
+        this.router.navigate(['home']);
+      } else {
+        this.isValid = false;
+      }
+    }
   }
 }
