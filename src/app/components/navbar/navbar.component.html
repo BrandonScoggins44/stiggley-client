@@ -1,3 +1,20 @@
-<p>
-  navbar works!
-</p>
+<mat-toolbar class="mat-elevation-z3" color="secondary">
+  <span>
+    <a class="navbar-brand">
+      <img src="../../../assets/stiggleyLogo.svg" alt="Stiggley Logo" style="height: 64px;">
+    </a>
+  </span>
+  <span *ngIf="loggedIn">
+    <a mat-button color="secondary" routerLink="/home"> Home </a> <!-- a feed of some sort? -->
+    <a mat-button color="secondary" routerLink="/world-building"> Worlds </a>
+    <a mat-button color="secondary" routerLink="/item-creation"> Items </a>
+    <a mat-button color="secondary" routerLink="/character-creation"> Characters </a>
+  </span>
+  <span style="flex: 1 1 auto;"></span>
+  <span>
+    <a *ngIf="!loggedIn" mat-button color="secondary" routerLink="/login"> Login </a>
+    <a *ngIf="!loggedIn" mat-button color="secondary" routerLink="/register"> Register </a>
+    <a *ngIf="loggedIn" mat-button color="secondary" routerLink="/profile"> Profile </a>
+    <a *ngIf="loggedIn" mat-button color="secondary" (click)="ngOnInit()"> Logout </a>
+  </span>
+</mat-toolbar>
