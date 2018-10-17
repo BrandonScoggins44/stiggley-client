@@ -1,6 +1,10 @@
 export class User {
-    userId: number;
-    email: string;
-    username: string;
-    password: string;
+    userId: Number;
+    email: String;
+    username: String;
+    password: String;
+    // registerDate: Date;
+    // firstname: String;
+    // lastname: String;
+    // dateOfBirth: Date;
 }
